@@ -11,7 +11,7 @@ import { WeatherAPIService } from '../services/weather-api.service';
 export class HomePage {
   constructor(private data: DataService, private api: WeatherAPIService, private router: Router) {}
 
-  refresh(ev) {
+  refresh(ev: any) {
     setTimeout(() => {
       ev.detail.complete();
     }, 3000);
@@ -29,13 +29,13 @@ export class HomePage {
         reportero: 'Sistema ' + res.location.name,
         ciudad: res.location.name,
         temperatura: res.current.temp_c
-      })
+      });
     });
     //console.log("Added Message From API");
   }
 
   addMessageFromForm() {
-    this.router.navigateByUrl("/input")
+    this.router.navigateByUrl('/input');
   }
 
 }

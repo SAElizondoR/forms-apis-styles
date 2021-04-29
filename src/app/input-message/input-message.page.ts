@@ -13,34 +13,34 @@ export class InputMessagePage implements OnInit {
   datosForm: FormGroup;
   mensajesValidacion = {
     datos: [
-      {type:"required", message: "Por favor llene el dato completo."},
-      {type:"pattern", message: "Por favor use carácteres válidos."},
+      {type:'required', message: 'Por favor llene el dato completo.'},
+      {type:'pattern', message: 'Por favor use carácteres válidos.'},
     ]
-  }
+  };
   constructor(private formBuilder: FormBuilder, private data: DataService, private router: Router) {
     this.datosForm = this.formBuilder.group({
-      reportero: new FormControl("", Validators.compose([
+      reportero: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern("^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$")
+        Validators.pattern('^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$')
       ])),
-      ciudad: new FormControl("", Validators.compose([
+      ciudad: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern("^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$")
+        Validators.pattern('^[a-zA-Z-,]+(\s{0,1}[a-zA-Z-, ])*$')
 
       ])),
-      temperatura: new FormControl("", Validators.compose([
+      temperatura: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.pattern("^[0-9]*$")
+        Validators.pattern('^[0-9]*$')
       ]))
-    })
+    });
    }
 
   ngOnInit() {
   }
 
-  ingresarDatos(datos){
+  ingresarDatos(datos: any){
     this.data.addMessageInput(datos);
-    this.router.navigateByUrl("/")
+    this.router.navigateByUrl('/');
   }
 
   getBackButtonText() {

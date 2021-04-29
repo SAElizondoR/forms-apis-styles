@@ -41,17 +41,17 @@ export class DataService {
       date: this.getCurrentTime(),
       id: this.messages.length,
       read: false,
-      temperatura: String(message.temperatura) + " °C"
+      temperatura: String(message.temperatura) + ' °C'
     });
 
-    console.log(this.messages)
+    console.log(this.messages);
   }
 
   getCurrentTime(){
-    var currentDate = new Date();
-    return     currentDate.getHours() + ":"
-             + currentDate.getMinutes() + " "
-             + this.getTimeSpecific(currentDate.getHours())
+    const currentDate = new Date();
+    return     currentDate.getHours() + ':'
+             + currentDate.getMinutes() + ' '
+             + this.getTimeSpecific(currentDate.getHours());
   }
 
   getTimeSpecific(hour){
